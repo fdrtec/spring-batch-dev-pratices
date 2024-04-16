@@ -10,11 +10,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+import lombok.RequiredArgsConstructor;
+
 @EnableBatchProcessing
+@Configuration
+@RequiredArgsConstructor
 public class MigracaoDadosJobConfig {
-    @Autowired
-    private JobBuilderFactory jobBuiderFactory;   
+    
+    private final JobBuilderFactory jobBuiderFactory;   
 
     @Bean
     public Job migracaoDadosJob(
